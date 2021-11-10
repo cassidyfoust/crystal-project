@@ -1,7 +1,28 @@
 .App {
-  text-align: center;
 }
 
 .App-header {
-  
+  width: 40%;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+font-family: 'Lato', sans-serif;
+font-style: normal;
+font-weight: 900;
+font-size: 36px;
+line-height: 43px;
+color: #FFFFFF;
+}
+
+h4 {
+  text-align: center;
+
+font-family: Lato;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 18px;
+color: #6E6E6E;
 }
