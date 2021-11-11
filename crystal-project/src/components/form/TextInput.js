@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Person from './Person.png';
 
 class TextInput extends Component {
     render() {
@@ -10,7 +9,7 @@ class TextInput extends Component {
             <span className="input-group-text" id="basic-addon1">
                 <img src={this.props.icon}></img>
             </span>
-            <input type="text" className="form-control" placeholder={this.props.placeholder} id="name"/>
+            <input type="text" className="form-control" placeholder={this.props.placeholder} value={this.props.value} onChange={(event) => {this.props.onChange(event, this.props.id)}}/>
             </div>
             </>
         )
