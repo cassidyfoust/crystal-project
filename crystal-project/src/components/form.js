@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './form.css';
 import TextInput from './form/TextInput';
+import IncrementInput from './form/IncrementInput';
 import Person from './form/Person.png';
 import Email from './form/Email.png';
 import Phone from './form/Phone.png';
@@ -25,21 +26,21 @@ class Form extends Component {
       placeholder: 'Enter your phone number',
       value: ''
     }},
-    incrementInputs: [{
+    incrementInputs: {0:{
       name: 'adults',
       label: 'ADULTS',
       value: 0
     },
-    {
+    1:{
       name: 'kids',
       label: 'KIDS',
       value: 0
     },
-    {
+    2: {
       name: 'cabins',
       label: 'CABIN ROOMS',
       value: 0
-    }]
+    }}
   }
 
   handleInputChange(evt, id) {
@@ -51,6 +52,30 @@ class Form extends Component {
           value: evt.target.value
         }
       }})
+  }
+
+  handleClick(id, modifier) {
+    if(modifier === 'add'){
+      this.setState({
+        incrementInputs: {
+          ...this.state.incrementInputs,
+          [id]: {
+            ...this.state.incrementInputs[id],
+            value: (this.state.incrementInputs[id].value + 1)
+          }
+        }
+      })
+    } else {
+    this.setState({
+      incrementInputs: {
+        ...this.state.incrementInputs,
+        [id]: {
+          ...this.state.incrementInputs[id],
+          value: (this.state.incrementInputs[id].value - 1)
+        }
+      }
+    })
+  }
   }
 
   clearInputs = () => {
@@ -80,18 +105,12 @@ class Form extends Component {
         />}
       })}
 <div className="increment-button-wrapper">
-  {this.state.incrementInputs.map((input) => {
-    return <div className="input-group mb-3 increment-buttons">
-    <div>
-  <label className="label">{input.label}</label>
-  </div>
-  <div className="increment-display-wrapper">
-    <button className="btn btn-left btn-outline-secondary" type="button">-</button>
-    <input type="text" className="form-control increment-display" value={input.value} disabled={true}/>
-    <button className="btn btn-right btn-outline-secondary" type="button">+</button>
-    </div>
-  </div>
-  })}
+  {Object.keys(this.state.incrementInputs).map(([key, textValue])=> {
+    return <IncrementInput
+    label={this.state.incrementInputs[key].label}
+    value={this.state.incrementInputs[key].value}
+    id={key}
+    handleClick={this.handleClick.bind(this)}/>})}
 </div>
 <button type="button" className="btn btn-primary submit-btn" onClick={() => {this.clearInputs()}}>COMPLETE YOUR BOOKING</button>
     </div>
