@@ -27,17 +27,14 @@ class Form extends Component {
       value: ''
     }},
     incrementInputs: {0:{
-      name: 'adults',
       label: 'ADULTS',
       value: 0
     },
     1:{
-      name: 'kids',
       label: 'KIDS',
       value: 0
     },
     2: {
-      name: 'cabins',
       label: 'CABIN ROOMS',
       value: 0
     }}
@@ -87,7 +84,20 @@ class Form extends Component {
     },
     2: {...this.state.textInputs[2],
       value: ''
-    }}
+    }},
+    incrementInputs: {0:{
+      ...this.state.incrementInputs[0],
+      value: 0
+    },
+    1:{
+      ...this.state.incrementInputs[1],
+      value: 0
+    },
+    2: {
+      ...this.state.incrementInputs[2],
+      value: 0
+    }
+  }
   })
   }
 
