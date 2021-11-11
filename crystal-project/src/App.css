@@ -2,8 +2,11 @@
 }
 
 .App-header {
-  width: 40%;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
 }
 
 h1 {
@@ -25,4 +28,5 @@ font-weight: normal;
 font-size: 15px;
 line-height: 18px;
 color: #6E6E6E;
+padding-bottom: 1em;
 }

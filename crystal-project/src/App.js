@@ -9,9 +9,9 @@ function App() {
           Book a Trip.
         </h1>
         <h4>
-        An amazing journey is waiting for you and your loved ones! You’re just one step away from a new adventure:
+          An amazing journey is waiting for you and your loved ones! You’re just one step away from a new adventure:
         </h4>
-        <Form/>
+        <Form />
       </header>
     </div>
   );
